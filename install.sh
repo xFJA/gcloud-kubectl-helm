@@ -32,6 +32,10 @@ chmod 755 /usr/local/bin/sops
 curl --silent --show-error --fail --location --output /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/"${YQ_BIN_VERSION}"/yq_linux_amd64
 chmod 755 /usr/local/bin/yq
 
+# install yarn
+echo -e 'http://dl-cdn.alpinelinux.org/alpine/edge/main\nhttp://dl-cdn.alpinelinux.org/alpine/edge/community\nhttp://dl-cdn.alpinelinux.org/alpine/edge/testing' \
+> /etc/apk/repositories && apk add --no-cache yarn
+
 # set permissions
 mkdir -p /data
 chown gkh /data /entrypoint.sh /data/commands.sh
